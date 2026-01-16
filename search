@@ -1,0 +1,23 @@
+Yes, it can help, but only if you use it for the right reason.
+
+When it helps most: names (Irish names especially), place names, brand names, acronyms, product SKUs, and any word ElevenLabs keeps mispronouncing. Pronunciation dictionaries are built exactly for that.
+
+The trap: if the voice/model is already pronouncing everything fine, adding a big dictionary just creates new bugs (wrong replacements in the wrong context). Keep it small and surgical.
+
+The big “gotcha” is model support:
+
+Phoneme rules (IPA / CMU) only work on specific English models (Flash v2, Turbo v2, English/Monolingual v1). On other models they can be silently ignored.
+
+If you’re using a model where phonemes are skipped, use alias substitutions instead (rewrite the text to force the sound).
+
+Dictionaries are case-sensitive, so “Apple” and “apple” are different entries.
+
+What I’d do for an Irish client:
+
+Generate a short test script with their common names/terms.
+
+Only add dictionary entries for words that come out wrong.
+
+Re-test and stop as soon as it’s stable.
+
+If you tell me which ElevenLabs model you’re using (v3 vs Turbo/Flash, etc.) and 5–10 words that are being mispronounced, I’ll tell you whether to use phonemes or aliases and what to add.
